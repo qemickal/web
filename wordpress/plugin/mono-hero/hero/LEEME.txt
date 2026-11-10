@@ -1,0 +1,19 @@
+========================================================
+  SUELTA AQUÍ TU BUILD ANTES DE COMPRIMIR EL PLUGIN
+========================================================
+
+Esta carpeta (hero/) debe quedar así ANTES de hacer el .zip:
+
+  hero/
+  ├── mono-hero.html   ← el dist/index.html RENOMBRADO
+  ├── images/          ← la carpeta dist/images COMPLETA
+  │    ├── tienda.jpg
+  │    ├── estudio.jpg
+  │    └── obj-1..6.jpg
+  └── LEEME.txt        (este archivo, opcional dejarlo)
+
+Después comprime la carpeta  mono-hero/  completa
+(la que contiene mono-hero.php y hero/) en un .zip
+y súbela en WordPress → Plugins → Añadir → Subir plugin.
+
+========================================================

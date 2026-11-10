@@ -1,0 +1,36 @@
+========================================================
+  MONO CROMAT & CO. — Lee esto antes de abrir nada
+========================================================
+
+¿PANTALLA EN BLANCO? Es normal si abriste el index.html
+equivocado. Hay dos:
+
+  × /index.html           → es el archivo FUENTE del proyecto.
+                            No se abre directo (por eso el blanco).
+
+  ✓ /dist/index.html      → es EL SITIO ya compilado.
+                            Este sí se abre con doble clic.
+
+--------------------------------------------------------
+PARA VER EL SITIO YA:
+--------------------------------------------------------
+  1. npm install        (solo la primera vez)
+  2. npm run build
+  3. Abre dist/index.html con doble clic
+     (mantén la carpeta /images junto al archivo — ahí
+      viven las fotos; si la quitas, salen en blanco)
+
+PARA EDITAR CON VISTA EN VIVO:
+  npm run dev  →  http://localhost:5173
+
+PARA WORDPRESS:
+  usa dist/index.html según wordpress/README.md
+
+--------------------------------------------------------
+Notas:
+  · Las tipografías (Archivo, Plex Mono, Instrument Serif)
+    cargan de Google Fonts: necesitas internet la primera
+    vez. Conexión lenta = un parpadeo de fuente, nada más.
+  · Imágenes de los paneles: se reemplazan en /images o
+    editando src/media.ts. Instrucciones en ese archivo.
+========================================================

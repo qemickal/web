@@ -1,20 +1,20 @@
 @import "tailwindcss";
 
 /* ============================================================
-   MONO CROMAT & CO. — Brand palette
-   Off-White  #F4F6F8 · Light Blue #9BC1E2 · Mint #7FC5C1
-   Axis Blue  #0A50B1 · Navy #003366 · Night Ink #0A1A2F
+   MONO CROMAT & CO. — Paleta oficial (Manual de marca, ed. 01)
+   Oxford Dark #081C30 · Royal Blue #2E48A1 · Bright Blue #1A86D0
+   Sky Blue #57C1E8 · Mint Teal #4CD8C0 · Blanco papel #FAF7F4
    ============================================================ */
 
 :root {
-  --paper: #f4f6f8;
-  --sky: #9bc1e2;
-  --mint: #7fc5c1;
-  --axis: #0a50b1;
-  --navy: #003366;
-  --night: #0a1a2f;
-  --ink: var(--night);
-  --accent: var(--axis);
+  --paper: #faf7f4;
+  --sky: #57c1e8;
+  --mint: #4cd8c0;
+  --bright: #1a86d0;
+  --royal: #2e48a1;
+  --oxford: #081c30;
+  --ink: var(--oxford);
+  --accent: var(--royal);
 
   --ease-hero: cubic-bezier(0.77, 0, 0.18, 1);
   --t-hero: 780ms;
@@ -23,19 +23,18 @@
 html,
 body {
   height: 100%;
-  background: var(--night);
+  background: var(--oxford);
 }
 
 body {
-  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overscroll-behavior: none;
 }
 
 .font-display {
-  font-family: "Archivo", ui-sans-serif, system-ui, sans-serif;
-  font-stretch: 118%;
+  font-family: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 }
 
 .font-serif-i {
@@ -44,7 +43,7 @@ body {
 }
 
 .mono-label {
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-family: "Fira Mono", ui-monospace, monospace;
   text-transform: uppercase;
   letter-spacing: 0.32em;
 }
@@ -75,14 +74,14 @@ body {
 }
 
 .panel-tienda {
-  color: var(--night);
+  color: var(--oxford);
   background: var(--paper);
   z-index: 1;
 }
 
 .panel-estudio {
   color: var(--paper);
-  background: var(--night);
+  background: var(--oxford);
   z-index: 2;
 }
 
@@ -125,12 +124,12 @@ body {
 /* TIENDA — lavado Off-White con susurro de Mint */
 .ov-wash {
   background:
-    radial-gradient(60% 42% at 10% 98%, rgba(127, 197, 193, 0.2), transparent 62%),
+    radial-gradient(60% 42% at 10% 98%, rgba(76, 216, 192, 0.2), transparent 62%),
     linear-gradient(
       180deg,
-      rgba(244, 246, 248, 0.9) 0%,
-      rgba(244, 246, 248, 0.52) 42%,
-      rgba(10, 26, 47, 0.38) 108%
+      rgba(250, 247, 244, 0.9) 0%,
+      rgba(250, 247, 244, 0.52) 42%,
+      rgba(8, 28, 48, 0.38) 108%
     );
 }
 
@@ -142,18 +141,18 @@ body {
 .ov-night {
   background: linear-gradient(
     160deg,
-    rgba(0, 51, 102, 0.42) 0%,
-    rgba(10, 26, 47, 0.3) 45%,
-    rgba(10, 26, 47, 0.86) 115%
+    rgba(46, 72, 161, 0.42) 0%,
+    rgba(8, 28, 48, 0.3) 45%,
+    rgba(8, 28, 48, 0.86) 115%
   );
 }
 
 /* ESTUDIO — brillo cromático en azules de marca */
 .ov-chroma {
   background:
-    radial-gradient(55% 45% at 88% 92%, rgba(10, 80, 177, 0.42), transparent 62%),
-    radial-gradient(45% 40% at 6% 8%, rgba(127, 197, 193, 0.22), transparent 60%),
-    radial-gradient(42% 45% at 80% 6%, rgba(155, 193, 226, 0.2), transparent 60%);
+    radial-gradient(55% 45% at 88% 92%, rgba(26, 134, 208, 0.42), transparent 62%),
+    radial-gradient(45% 40% at 6% 8%, rgba(76, 216, 192, 0.22), transparent 60%),
+    radial-gradient(42% 45% at 80% 6%, rgba(87, 193, 232, 0.2), transparent 60%);
   mix-blend-mode: screen;
   animation: chromaPulse 7s ease-in-out infinite alternate;
 }
@@ -172,7 +171,7 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: rgba(10, 26, 47, 0.26);
+  background: rgba(8, 28, 48, 0.26);
   opacity: 0;
   transition: opacity 0.6s ease;
 }
@@ -183,7 +182,7 @@ body {
 }
 
 .panel-estudio .ov-dim {
-  background: rgba(4, 10, 20, 0.55);
+  background: rgba(3, 8, 16, 0.55);
 }
 
 /* ---------- Content wrapper ---------- */
@@ -250,38 +249,6 @@ body {
   [data-active="estudio"] .content-tienda {
     height: 17%;
   }
-}
-
-/* ---------- Tarjeta empaquetada detrás del título ---------- */
-
-.packed {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-  transform: translate(calc(var(--px, 0) * 10px), calc(var(--py, 0) * 8px));
-  transition: opacity 0.4s ease;
-}
-
-.packed .cp-root.packed {
-  transition: transform var(--t-hero) var(--ease-hero);
-  transform: rotate(-6deg) scale(0.94);
-}
-
-[data-active="tienda"] .panel-tienda .packed .cp-root.packed,
-[data-active="estudio"] .panel-estudio .packed .cp-root.packed {
-  transform: rotate(-3deg) scale(1.05);
-}
-
-[data-active="tienda"] .panel-estudio .packed,
-[data-active="estudio"] .panel-tienda .packed {
-  opacity: 0;
-}
-
-[data-active="tienda"] .panel-estudio .packed .cp-root.packed,
-[data-active="estudio"] .panel-tienda .packed .cp-root.packed {
-  transform: rotate(-14deg) scale(0.55);
 }
 
 /* ---------- Titles ---------- */
@@ -526,7 +493,7 @@ body {
   transition:
     left var(--t-hero) var(--ease-hero),
     top var(--t-hero) var(--ease-hero);
-  box-shadow: 0 6px 30px rgba(10, 26, 47, 0.35);
+  box-shadow: 0 6px 30px rgba(8, 28, 48, 0.35);
 }
 
 @media (min-width: 768px) {
@@ -580,234 +547,6 @@ body {
 }
 
 /* ============================================================
-   CARDPRESS — la tarjeta viva
-   ============================================================ */
-
-.cp-root {
-  perspective: 1200px;
-  display: block;
-}
-
-.cp-root.packed {
-  --w: clamp(180px, 25vmin, 320px);
-}
-
-.cp-root.hero {
-  --w: clamp(250px, 30vw, 430px);
-  cursor: pointer;
-  background: none;
-  border: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.cp-root.hero:focus-visible {
-  outline: 2px solid var(--axis);
-  outline-offset: 8px;
-  border-radius: 12px;
-}
-
-@media (max-width: 767.98px) {
-  .cp-root.hero {
-    --w: min(74vw, 350px);
-  }
-}
-
-.cp-float {
-  will-change: transform;
-}
-
-.cp-tilt {
-  transform-style: preserve-3d;
-}
-
-.cp-inner {
-  container-type: inline-size;
-  position: relative;
-  width: var(--w);
-  aspect-ratio: 5 / 7;
-  transform-style: preserve-3d;
-}
-
-.cp-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border-radius: 2.6cqw;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 6.5% 7%;
-  box-shadow:
-    0 34px 70px -20px rgba(10, 26, 47, 0.5),
-    0 10px 22px -10px rgba(10, 26, 47, 0.3);
-}
-
-.cp-front.cp-tienda {
-  background: var(--paper);
-  color: var(--night);
-}
-
-.cp-front.cp-estudio {
-  background: #0e1d36;
-  color: var(--paper);
-}
-
-.cp-back {
-  transform: rotateY(180deg);
-  background: var(--night);
-  color: var(--paper);
-}
-
-.cp-top {
-  display: flex;
-  justify-content: space-between;
-  font-size: 9px;
-  font-size: 3.1cqw;
-  letter-spacing: 0.18em;
-  opacity: 0.72;
-}
-
-.cp-stamp {
-  position: relative;
-  flex: 1;
-  margin-top: 3.5cqw;
-  border-radius: 1.4cqw;
-  background-size: 190%;
-  box-shadow: inset 0 0 0 1px rgba(10, 26, 47, 0.16);
-  overflow: hidden;
-}
-
-.cp-estudio .cp-stamp {
-  box-shadow: inset 0 0 0 1px rgba(155, 193, 226, 0.28);
-}
-
-.cp-serial {
-  position: absolute;
-  right: 5%;
-  bottom: 6%;
-  background: var(--paper);
-  color: var(--night);
-  padding: 1.4cqw 2.6cqw;
-  border-radius: 0.8cqw;
-  font-size: 8px;
-  font-size: 2.6cqw;
-  letter-spacing: 0.22em;
-}
-
-.cp-estudio .cp-serial {
-  background: var(--night);
-  color: var(--sky);
-}
-
-.cp-word {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 125%;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 0.96;
-  margin-top: 3.6cqw;
-  font-size: 34px;
-  font-size: 11cqw;
-}
-
-.cp-estudio .cp-word {
-  color: var(--paper);
-}
-
-.cp-bot {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 3cqw;
-  font-size: 9px;
-  font-size: 2.9cqw;
-  letter-spacing: 0.16em;
-  opacity: 0.72;
-}
-
-.cp-bot svg {
-  color: var(--axis);
-}
-
-.cp-estudio .cp-bot svg {
-  color: var(--mint);
-}
-
-/* Foil — barrido de brillo serigráfico */
-.cp-foil {
-  position: absolute;
-  inset: -25%;
-  pointer-events: none;
-  background: linear-gradient(
-    115deg,
-    transparent 34%,
-    rgba(255, 255, 255, 0) 42%,
-    rgba(255, 255, 255, 0.6) 49%,
-    rgba(155, 193, 226, 0.4) 53%,
-    rgba(255, 255, 255, 0) 60%,
-    transparent 68%
-  );
-  background-size: 260% 100%;
-  background-repeat: no-repeat;
-  mix-blend-mode: overlay;
-  opacity: 0.55;
-}
-
-.cp-estudio .cp-foil {
-  mix-blend-mode: screen;
-  opacity: 0.7;
-}
-
-/* Borde físico: luz de canto */
-.cp-shadowedge {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    inset 0 0 0 1px rgba(255, 255, 255, 0.07),
-    inset 0 1.5px 0 rgba(255, 255, 255, 0.14),
-    inset 0 -3px 8px rgba(10, 26, 47, 0.16);
-}
-
-/* Reverso */
-.cp-back-head,
-.cp-back-foot {
-  display: flex;
-  justify-content: space-between;
-  font-size: 8px;
-  font-size: 2.6cqw;
-  letter-spacing: 0.2em;
-  opacity: 0.6;
-}
-
-.cp-back-mark {
-  width: 20cqw;
-  height: 20cqw;
-  align-self: center;
-  margin-top: auto;
-  color: var(--axis);
-}
-
-.cp-back-estudio .cp-back-mark {
-  color: var(--mint);
-}
-
-.cp-back-lines {
-  margin: 6cqw 0 auto;
-  text-align: center;
-  display: grid;
-  gap: 2.4cqw;
-  font-size: 9px;
-  font-size: 2.9cqw;
-  letter-spacing: 0.16em;
-  opacity: 0.88;
-}
-
-/* ============================================================
    CORTINA DE TRANSICIÓN
    ============================================================ */
 
@@ -826,11 +565,11 @@ body {
 }
 
 .wipe-a {
-  background: var(--axis);
+  background: var(--royal);
 }
 
 .wipe-b {
-  background: var(--night);
+  background: var(--oxford);
 }
 
 .wipe-label {
@@ -857,11 +596,11 @@ body {
 
 .page-tienda {
   background: var(--paper);
-  color: var(--night);
+  color: var(--oxford);
 }
 
 .page-estudio {
-  background: var(--night);
+  background: var(--oxford);
   color: var(--paper);
 }
 
@@ -883,7 +622,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  font-family: "IBM Plex Mono", monospace;
+  font-family: "Fira Mono", monospace;
   text-transform: uppercase;
   letter-spacing: 0.28em;
   font-size: 10px;
@@ -900,6 +639,219 @@ body {
   border-color: currentColor;
 }
 
+/* ——— Hero de página (variante carrusel) ——— */
+
+.pg-hero-crs {
+  gap: 44px;
+  padding-top: 5vh;
+}
+
+/* ============================================================
+   CARRUSEL DE LÁMINAS — cartel serigrafiado en movimiento
+   Duotonos según manual: a Oxford+Royal · b Royal+Teal · c Bright+Sky
+   ============================================================ */
+
+.crs {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  user-select: none;
+}
+
+.crs-track {
+  display: flex;
+  width: 100%;
+  transition: transform 750ms cubic-bezier(0.2, 0.6, 0.2, 1);
+  touch-action: pan-y;
+}
+
+.crs-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: clamp(340px, 58vh, 600px);
+  overflow: hidden;
+  background: var(--oxford);
+}
+
+.crs-slide img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  transition: transform 6s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+/* Scrim inferior: el texto siempre sobre tinta oscura */
+.crs-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 44%, rgba(8, 28, 48, 0.58) 100%);
+}
+
+.crs-slide.active img {
+  transform: scale(1.11);
+}
+
+.crs-tint {
+  position: absolute;
+  inset: 0;
+}
+
+.crs-tint-a {
+  background: linear-gradient(
+    155deg,
+    rgba(8, 28, 48, 0.72) 0%,
+    rgba(46, 72, 161, 0.5) 55%,
+    rgba(8, 28, 48, 0.78) 100%
+  );
+}
+
+.crs-tint-b {
+  background: linear-gradient(
+    155deg,
+    rgba(46, 72, 161, 0.68) 0%,
+    rgba(76, 216, 192, 0.28) 55%,
+    rgba(8, 28, 48, 0.72) 100%
+  );
+}
+
+.crs-tint-c {
+  background: linear-gradient(
+    155deg,
+    rgba(26, 134, 208, 0.6) 0%,
+    rgba(87, 193, 232, 0.3) 55%,
+    rgba(8, 28, 48, 0.75) 100%
+  );
+}
+
+.crs-copy {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 28px 28px 30px;
+  color: var(--paper);
+}
+
+@media (min-width: 768px) {
+  .crs-copy {
+    padding: 48px 52px 44px;
+  }
+}
+
+.crs-serial {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.crs-statement {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
+  line-height: 0.94;
+  font-size: clamp(2.1rem, 5.5vw, 4.8rem);
+  max-width: 20ch;
+}
+
+.crs-cap {
+  font-size: 9.5px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+/* Flechas */
+
+.crs-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--oxford) 62%, transparent);
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--paper) 26%, transparent);
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.crs-arrow:hover {
+  background: var(--royal);
+  border-color: var(--royal);
+}
+
+.crs-arrow.prev {
+  left: 14px;
+}
+
+.crs-arrow.next {
+  right: 14px;
+}
+
+.crs-arrow svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Puntos — rombos de marca */
+
+.crs-dots {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 3;
+  display: flex;
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .crs-dots {
+    right: 28px;
+    bottom: 26px;
+  }
+}
+
+.crs-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  background: color-mix(in srgb, var(--paper) 40%, transparent);
+  border: 0;
+  cursor: pointer;
+  transform: rotate(45deg);
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.crs-dot:hover {
+  background: color-mix(in srgb, var(--paper) 75%, transparent);
+}
+
+.crs-dot.active {
+  background: var(--mint);
+  transform: rotate(45deg) scale(1.25);
+}
+
 /* ——— Hero de página ——— */
 
 .pg-hero {
@@ -913,7 +865,7 @@ body {
 
 @media (min-width: 768px) {
   .pg-hero {
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr;
     padding: 13vh 36px 11vh;
   }
 }
@@ -924,25 +876,6 @@ body {
   gap: 12px;
   font-size: 10px;
   opacity: 0.85;
-}
-
-.pg-title {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: -0.035em;
-  line-height: 0.9;
-  font-size: clamp(4.4rem, 13vw, 11.5rem);
-  margin-top: 16px;
-}
-
-.pg-ety {
-  font-family: "Instrument Serif", Georgia, serif;
-  font-style: italic;
-  font-size: clamp(17px, 2vw, 21px);
-  opacity: 0.78;
-  margin-top: 16px;
 }
 
 .pg-desc {
@@ -970,24 +903,10 @@ body {
   opacity: 0.75;
 }
 
-.pg-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 22px;
-}
-
-.pg-caption {
-  font-size: 9.5px;
-  letter-spacing: 0.24em;
-  text-align: center;
-  line-height: 2;
-  opacity: 0.62;
-}
-
 /* ——— Secciones ——— */
 
 .pg-section {
+  scroll-margin-top: 72px;
   max-width: 1240px;
   margin: 0 auto;
   padding: 6vh 20px;
@@ -1010,9 +929,8 @@ body {
 }
 
 .sec-title {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   font-size: clamp(2.1rem, 5.5vw, 4.2rem);
@@ -1044,7 +962,7 @@ body {
 }
 
 .rel-card:hover {
-  border-color: var(--axis);
+  border-color: var(--royal);
   transform: translateY(-4px);
 }
 
@@ -1071,7 +989,7 @@ body {
   left: 14px;
   font-size: 10px;
   letter-spacing: 0.3em;
-  background: var(--night);
+  background: var(--oxford);
   color: var(--paper);
   padding: 5px 10px;
 }
@@ -1093,15 +1011,14 @@ body {
 .rel-icon {
   height: 42px;
   width: 42px;
-  color: var(--axis);
+  color: var(--royal);
   flex: none;
   margin-top: 2px;
 }
 
 .rel-name {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(1.4rem, 2.4vw, 1.9rem);
   letter-spacing: -0.02em;
@@ -1159,6 +1076,7 @@ body {
 .rel-price {
   font-size: 11px;
   letter-spacing: 0.14em;
+  color: var(--royal);
 }
 
 /* ——— Teasers ——— */
@@ -1204,7 +1122,7 @@ body {
   position: absolute;
   left: 10px;
   bottom: 10px;
-  background: color-mix(in srgb, var(--night) 82%, transparent);
+  background: color-mix(in srgb, var(--oxford) 82%, transparent);
   color: var(--paper);
   border-color: transparent;
   backdrop-filter: blur(4px);
@@ -1239,9 +1157,8 @@ body {
 
 .prin-t {
   position: relative;
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(1.55rem, 4.5vw, 3.3rem);
   letter-spacing: -0.02em;
@@ -1303,9 +1220,8 @@ body {
 }
 
 .prac-name {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(1.3rem, 3vw, 2rem);
   letter-spacing: -0.02em;
@@ -1344,24 +1260,25 @@ body {
 }
 
 .poster.pa {
-  background: var(--navy);
+  background: var(--oxford);
   color: var(--sky);
+  border: 1px solid color-mix(in srgb, var(--paper) 32%, transparent);
 }
 
 .poster.pb {
   background: var(--mint);
-  color: var(--night);
+  color: var(--oxford);
 }
 
 .poster.pc {
-  background: var(--axis);
+  background: var(--royal);
   color: var(--paper);
 }
 
 .poster-big {
   font-size: clamp(54px, 7vw, 76px);
   line-height: 1;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .poster-big.font-serif-i {
@@ -1389,9 +1306,521 @@ body {
   opacity: 0.8;
 }
 
+/* ============================================================
+   BANDA DE NAVEGACIÓN — categorías + búsqueda (sticky)
+   El recurso "banda" del manual: franja horizontal continua,
+   de margen a margen, anclada a la retícula.
+   ============================================================ */
+
+.shopband {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  color: var(--oxford);
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.sb-in {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: stretch;
+  gap: 22px;
+  min-height: 54px;
+}
+
+@media (min-width: 768px) {
+  .sb-in {
+    padding: 0 36px;
+  }
+}
+
+.sb-track {
+  display: flex;
+  align-items: stretch;
+  gap: 19px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sb-track::-webkit-scrollbar {
+  display: none;
+}
+
+.sb-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 2px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.sb-no {
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  color: var(--bright);
+  opacity: 0.9;
+}
+
+.sb-label {
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  opacity: 0.78;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.sb-link:hover .sb-label {
+  opacity: 1;
+}
+
+.sb-fill {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  width: 0;
+  background: var(--royal);
+  transition: width 0.3s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.sb-link:hover .sb-fill,
+.sb-link.active .sb-fill {
+  width: 100%;
+}
+
+.sb-link.active .sb-label {
+  opacity: 1;
+  color: var(--royal);
+}
+
+.sb-link:focus-visible {
+  outline: 1px solid var(--royal);
+  outline-offset: 4px;
+}
+
+.sb-search {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: auto;
+  align-self: center;
+  padding: 8px 2px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+  flex: 1 1 170px;
+  min-width: 150px;
+  max-width: 230px;
+  transition: border-color 0.25s ease;
+}
+
+.sb-search:focus-within {
+  border-color: var(--royal);
+}
+
+.sb-search-ic {
+  width: 13px;
+  height: 13px;
+  opacity: 0.55;
+  flex: none;
+}
+
+.sb-search input {
+  width: 100%;
+  min-width: 0;
+  background: none;
+  border: 0;
+  outline: none;
+  color: inherit;
+  font-family: "Fira Mono", ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.sb-search input::placeholder {
+  color: inherit;
+  opacity: 0.45;
+}
+
+.sb-search input::-webkit-search-cancel-button {
+  display: none;
+}
+
+.sb-clear {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: inherit;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0.6;
+  padding: 0 2px;
+}
+
+.sb-clear:hover {
+  opacity: 1;
+  color: var(--royal);
+}
+
+@media (max-width: 767.98px) {
+  .sb-in {
+    flex-direction: column;
+    gap: 0;
+    padding-top: 6px;
+  }
+  .sb-track {
+    width: 100%;
+  }
+  .sb-link {
+    padding: 11px 2px;
+  }
+  .sb-search {
+    margin: 0 0 10px;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+}
+
+/* ——— Barra de resultado de filtro / búsqueda ——— */
+
+.resbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  padding: 12px 2px;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  margin-bottom: 34px;
+}
+
+.resbar-clear {
+  margin-left: auto;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  padding: 0 0 3px;
+  cursor: pointer;
+  color: inherit;
+  font-family: "Fira Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.resbar-clear:hover {
+  opacity: 1;
+  color: var(--royal);
+  border-color: var(--royal);
+}
+
+.cat-empty {
+  padding: 9vh 0;
+  text-align: center;
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.cat-empty button {
+  background: none;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  padding: 13px 22px;
+  cursor: pointer;
+  color: inherit;
+  font-family: "Fira Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.cat-empty button:hover {
+  background: var(--royal);
+  border-color: var(--royal);
+  color: var(--paper);
+}
+
+/* ——— CTA row: IR AL TALLER + COLABORACIONES ——— */
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 36px;
+}
+
+.cta-solid {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  background: var(--royal);
+  color: var(--paper);
+  border: 0;
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.25s ease;
+}
+
+.cta-solid:hover {
+  background: var(--oxford);
+}
+
+.cta-solid svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-solid:hover svg {
+  transform: translateX(4px);
+}
+
+.cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  background: none;
+  border: 1px solid color-mix(in srgb, currentColor 35%, transparent);
+  color: inherit;
+  text-decoration: none;
+  font-size: 11px;
+  transition:
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.cta-ghost:hover {
+  border-color: var(--royal);
+  color: var(--royal);
+}
+
+/* ============================================================
+   FOOTER DEL SITIO — taller, índice, acciones, colofón
+   ============================================================ */
+
+.site-foot {
+  margin-top: 12vh;
+  background: var(--oxford);
+  color: var(--paper);
+}
+
+.site-foot.royal {
+  background: var(--royal);
+}
+
+.sf-in {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 60px 20px 0;
+  display: grid;
+  gap: 44px;
+}
+
+@media (min-width: 900px) {
+  .sf-in {
+    grid-template-columns: 1.35fr 0.85fr 1.1fr 0.85fr;
+    padding: 72px 36px 0;
+  }
+}
+
+.sf-brand {
+  scroll-margin-top: 90px;
+}
+
+.sf-blurb {
+  margin-top: 18px;
+  max-width: 36ch;
+  font-size: 13.5px;
+  line-height: 1.7;
+  opacity: 0.85;
+}
+
+.sf-serif {
+  margin-top: 14px;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  opacity: 0.75;
+}
+
+.sf-technics {
+  margin-top: 18px;
+  font-family: "Fira Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.sf-h {
+  font-size: 9px;
+  opacity: 0.55;
+  margin-bottom: 16px;
+}
+
+.sf-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 0;
+  padding: 0 0 11px;
+  cursor: pointer;
+  color: inherit;
+  font-size: 10px;
+  opacity: 0.82;
+  transition:
+    opacity 0.2s ease,
+    color 0.2s ease;
+}
+
+.sf-link:hover {
+  opacity: 1;
+  color: var(--mint);
+}
+
+.site-foot.royal .sf-link:hover {
+  color: var(--paper);
+}
+
+.sf-data {
+  display: grid;
+  gap: 9px;
+  font-family: "Fira Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+
+.sf-data a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+  padding-bottom: 2px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.sf-data a:hover {
+  color: var(--mint);
+  border-color: var(--mint);
+}
+
+.site-foot.royal .sf-data a:hover {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+.sf-actions {
+  display: grid;
+  gap: 12px;
+  justify-items: start;
+}
+
+.sf-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 18px;
+  background: var(--royal);
+  color: var(--paper);
+  border: 0;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background 0.25s ease;
+}
+
+.sf-cta:hover {
+  background: var(--bright);
+}
+
+.site-foot.royal .sf-cta {
+  background: var(--paper);
+  color: var(--royal);
+}
+
+.site-foot.royal .sf-cta:hover {
+  background: var(--sky);
+  color: var(--oxford);
+}
+
+.sf-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 17px;
+  background: none;
+  border: 1px solid color-mix(in srgb, var(--paper) 40%, transparent);
+  color: inherit;
+  cursor: pointer;
+  font-size: 10px;
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.sf-ghost:hover {
+  border-color: var(--paper);
+  background: color-mix(in srgb, var(--paper) 10%, transparent);
+}
+
+.sf-bottom-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (min-width: 768px) {
+  .sf-bottom-wrap {
+    padding: 0 36px;
+  }
+}
+
+.sf-bottom {
+  border-top: 1px solid color-mix(in srgb, var(--paper) 16%, transparent);
+  margin-top: 56px;
+  padding: 18px 0 26px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  font-family: "Fira Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
 /* ——— Cierre de página ——— */
 
 .pg-next {
+  scroll-margin-top: 72px;
   max-width: 1240px;
   margin: 0 auto;
   padding: 10vh 20px 12vh;
@@ -1402,9 +1831,8 @@ body {
 }
 
 .pg-big {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.03em;
   line-height: 0.95;
@@ -1430,9 +1858,8 @@ body {
 }
 
 .next-word {
-  font-family: "Archivo", sans-serif;
-  font-stretch: 118%;
-  font-weight: 900;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
   text-transform: uppercase;
   font-size: clamp(1.4rem, 4vw, 2.5rem);
   letter-spacing: -0.02em;
@@ -1440,7 +1867,7 @@ body {
   align-items: center;
   gap: 14px;
   padding-bottom: 10px;
-  border-bottom: 2px solid var(--axis);
+  border-bottom: 2px solid var(--royal);
   transition:
     gap 0.3s ease,
     color 0.3s ease;
@@ -1473,25 +1900,6 @@ body {
 
 .cross-link:hover {
   opacity: 1;
-}
-
-.page-bottom {
-  max-width: 1240px;
-  margin: 4vh auto 0;
-  padding: 20px 20px 24px;
-  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  letter-spacing: 0.24em;
-}
-
-@media (min-width: 768px) {
-  .page-bottom {
-    padding: 20px 36px 26px;
-  }
 }
 
 /* ============================================================
@@ -1546,4 +1954,273 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* ============================================================
+   LOGOTIPO OFICIAL — script monolinea (Manual de marca p. 06)
+   Mínimo digital: 96 px de ancho. No rotar ni estirar.
+   ============================================================ */
+
+.logo-swap {
+  display: inline-flex;
+}
+
+.logo-img {
+  display: block;
+  height: auto;
+}
+
+.logo-swap .logo-neg {
+  display: none;
+}
+
+.page-estudio .logo-swap .logo-ink {
+  display: none;
+}
+
+.page-estudio .logo-swap .logo-neg {
+  display: block;
+}
+
+/* ============================================================
+   BANDA — variante oscura (página Estudio)
+   ============================================================ */
+
+.shopband.dark {
+  background: var(--oxford);
+  color: var(--paper);
+}
+
+.shopband.dark .sb-no {
+  color: var(--bright);
+}
+
+.shopband.dark .sb-fill {
+  background: var(--bright);
+}
+
+.shopband.dark .sb-link.active .sb-label {
+  color: var(--sky);
+}
+
+.shopband.dark .sb-link:focus-visible {
+  outline-color: var(--bright);
+}
+
+.sb-side {
+  margin-left: auto;
+  align-self: center;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .sb-side {
+    display: none;
+  }
+}
+
+/* ============================================================
+   ¿QUÉ HACEMOS? — líneas de servicio
+   ============================================================ */
+
+.qh-list {
+  list-style: none;
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.qh-row {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 22px 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  transition: padding-left 0.3s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.qh-row:hover {
+  padding-left: 12px;
+}
+
+.qh-no {
+  font-size: 10px;
+  opacity: 0.55;
+  flex: none;
+}
+
+.qh-txt {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  font-size: clamp(1.05rem, 2.6vw, 1.7rem);
+}
+
+/* ============================================================
+   TALLER Y TÉCNICAS — bloque flotante de papel (manual p. 12)
+   Papel al fondo, filete fino y aire interior.
+   ============================================================ */
+
+.tt-card {
+  background: var(--paper);
+  color: var(--oxford);
+  border: 1px solid color-mix(in srgb, var(--oxford) 22%, transparent);
+  box-shadow: 0 24px 60px -28px rgba(0, 0, 0, 0.55);
+  padding: 30px 30px 26px;
+  margin-top: 8px;
+}
+
+@media (min-width: 768px) {
+  .tt-card {
+    padding: 38px 40px 32px;
+  }
+}
+
+.tt-tag {
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  margin-bottom: 20px;
+}
+
+.tt-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tt-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.tt-table thead tr {
+  border-top: 2px solid var(--oxford);
+  border-bottom: 1px solid var(--oxford);
+}
+
+.tt-table thead th {
+  text-align: left;
+  font-family: "Fira Mono", monospace;
+  font-size: 8.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  padding: 10px 14px 10px 0;
+  white-space: nowrap;
+}
+
+.tt-table tbody tr {
+  border-bottom: 1px solid color-mix(in srgb, var(--oxford) 16%, transparent);
+}
+
+.tt-table tbody th {
+  text-align: left;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  font-size: 14.5px;
+  letter-spacing: -0.01em;
+  padding: 15px 14px 15px 0;
+  white-space: nowrap;
+}
+
+.tt-table tbody td {
+  font-size: 10px;
+  padding: 15px 14px 15px 0;
+  white-space: nowrap;
+  opacity: 0.85;
+}
+
+.tt-note {
+  margin-top: 18px;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+.tt-note + .tt-note {
+  margin-top: 8px;
+}
+
+/* ============================================================
+   WORKSHOP — sesiones de taller
+   ============================================================ */
+
+.ws-list {
+  list-style: none;
+  border-top: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+}
+
+.ws-row {
+  display: flex;
+  align-items: baseline;
+  gap: 22px;
+  padding: 26px 0;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 14%, transparent);
+  flex-wrap: wrap;
+}
+
+.ws-no {
+  font-size: 10px;
+  opacity: 0.55;
+  flex: none;
+}
+
+.ws-body {
+  flex: 1;
+  min-width: 240px;
+}
+
+.ws-name {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(1.2rem, 2.6vw, 1.75rem);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.ws-desc {
+  margin-top: 10px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  opacity: 0.85;
+  max-width: 56ch;
+}
+
+.ws-row .chip {
+  align-self: center;
+}
+
+.ws-meta {
+  margin-top: 22px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.ws-meta a {
+  color: var(--mint);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.ws-meta a:hover {
+  opacity: 0.8;
+}
+
+/* ——— CTA centrada (contacto) ——— */
+
+.cta-center {
+  justify-content: center;
+  margin-top: 30px;
 }

@@ -1,4 +1,4 @@
-/* Iconos CardPress — un icono por lanzamiento.
+/* Iconos de lanzamiento — un icono por serie (SVG dibujados a mano).
    SVG lineales, heredan color con currentColor. */
 
 interface IconProps {
@@ -58,10 +58,3 @@ export function IconOver({ className = "", strokeWidth = 2 }: IconProps) {
 }
 
 /* Asterisco sello — variante gráfica grande para composiciones */
-export function MarkAsterisk({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="3" className={className} aria-hidden="true">
-      <path d="M32 6v52M9 19.5l46 25M55 19.5l-46 25" />
-    </svg>
-  );
-}

@@ -1,9 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, Asterisk, ArrowUpRight } from "lucide-react";
 import Logo from "./Logo";
-import CardPress from "./CardPress";
 import { MEDIA } from "../media";
-import { WP_URLS, type PageId } from "../brand";
+import { WP_URLS, SLOGAN, type PageId } from "../brand";
 
 type Universe = "tienda" | "estudio";
 
@@ -154,11 +153,6 @@ export default function Hero({ onNavigate }: { onNavigate: (p: PageId) => void }
           <div className="ov ov-dim" aria-hidden="true" />
 
           <div className={`content content-${p.id}`}>
-            {/* La tarjeta CardPress "empaquetada", detrás del título */}
-            <div className="packed" aria-hidden="true">
-              <CardPress universe={p.id} mode="packed" stamp={i} />
-            </div>
-
             <div
               className={`rise-in rise-in-${i + 1} relative z-10 flex flex-col items-center justify-center px-6 text-center`}
             >
@@ -172,7 +166,7 @@ export default function Hero({ onNavigate }: { onNavigate: (p: PageId) => void }
 
               <span
                 aria-hidden="true"
-                className="title-h font-display block text-[clamp(3.4rem,10.5vw,9.5rem)] leading-[0.92] font-black tracking-[-0.045em] uppercase"
+                className="title-h font-display block text-[clamp(3.4rem,10.5vw,9.5rem)] leading-[0.92] font-bold tracking-[-0.045em] uppercase"
               >
                 <span className="title-text">{p.title}</span>
               </span>
@@ -220,7 +214,7 @@ export default function Hero({ onNavigate }: { onNavigate: (p: PageId) => void }
           aria-label="Mono Cromat & Co. — Inicio"
           onClick={(e) => e.preventDefault()}
         >
-          <Logo />
+          <Logo variant="negative" className="w-24" />
         </a>
         <nav className="fade-in mono-label hidden text-right text-[10px] leading-[1.9] opacity-90 sm:block md:text-[11px]">
           <p>01 — Tienda · La técnica</p>
@@ -234,7 +228,7 @@ export default function Hero({ onNavigate }: { onNavigate: (p: PageId) => void }
         </p>
         <p className="fade-in fade-in-late mono-label hidden items-center justify-center gap-2.5 text-center text-[10px] sm:flex md:text-[11px]">
           <span className="inline-block h-1 w-1 rotate-45 bg-current opacity-60" />
-          Lift your vision
+          {SLOGAN}
           <span className="inline-block h-1 w-1 rotate-45 bg-current opacity-60" />
         </p>
         <p className="fade-in fade-in-late mono-label text-right text-[9px] opacity-80 md:text-[11px]">

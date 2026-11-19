@@ -1,6 +1,5 @@
 import { ArrowLeft } from "lucide-react";
 import Logo from "./Logo";
-import { SLOGAN } from "../brand";
 
 /* Barra superior de páginas interiores */
 export function TopBar({ tag, onHome }: { tag: string; onHome: () => void }) {
@@ -14,24 +13,9 @@ export function TopBar({ tag, onHome }: { tag: string; onHome: () => void }) {
         <span className="hidden opacity-25 sm:inline" aria-hidden="true">
           /
         </span>
-        <Logo className="hidden opacity-90 sm:flex" />
+        <Logo className="hidden opacity-90 sm:flex w-24" />
       </div>
       <p className="mono-label text-right text-[9px] leading-[1.8] opacity-70 md:text-[10px]">{tag}</p>
     </header>
-  );
-}
-
-/* Pie de páginas interiores */
-export function PageFooter() {
-  return (
-    <footer className="page-bottom mono-label text-[9px] uppercase md:text-[10px]">
-      <p className="opacity-70">© MMXXVI — Mono Cromat &amp; Co.</p>
-      <p className="flex items-center gap-2.5">
-        <span className="inline-block h-1 w-1 rotate-45 bg-current opacity-60" />
-        {SLOGAN}
-        <span className="inline-block h-1 w-1 rotate-45 bg-current opacity-60" />
-      </p>
-      <p className="opacity-70">Ciudad de México</p>
-    </footer>
   );
 }

@@ -1,0 +1,51 @@
+MONO CROMAT & CO. — ACTUALIZACIÓN BRAND KIT 2027
+==================================================
+
+CÓMO SUBIR ESTO A GITHUB (sin comandos, puro clic):
+
+1. Entra a https://github.com/qemickal/web
+2. Botón "Add file" → "Upload files"
+3. Arrastra AQUÍ todo lo que viene en este paquete,
+   conservando las carpetas:
+      dist/  ·  public/  ·  src/  ·  index.html  ·  vite.config.ts  ·  .gitignore
+   (GitHub respeta las carpetas si arrastras las carpetas enteras)
+
+4. MUY IMPORTANTE — borrar un archivo que ya no existe:
+   a) Navega en GitHub a la carpeta src/components/
+   b) Abre CardPress.tsx
+   c) Icono de basurita (Delete this file) → Commit changes
+   Si no lo borras, queda código viejo referenciando cosas eliminadas.
+
+5. Abajo, donde dice "Commit changes", escribe un título corto
+   (ej: "Brand kit 2027") y confirma en "Commit changes" directo a main.
+
+6. Vercel despliega solo en 1–2 minutos. Refresca el sitio con
+   Cmd/Ctrl + Shift + R para ver la versión nueva.
+
+LISTA DE LO QUE INCLUYE ESTE PAQUETE (24 archivos):
+   .gitignore                              (nuevo)
+   index.html                              (modificado)
+   vite.config.ts                          (modificado)
+   dist/index.html                         (recompilado, listo)
+   dist/LEEME.txt                          (modificado)
+   dist/images/*                           (4 PNG nuevos)
+   public/LEEME.txt                        (modificado)
+   public/images/*                         (4 PNG nuevos)
+   src/brand.ts                            (paleta oficial)
+   src/index.css                           (paleta + tipografías + todo el estilo nuevo)
+   src/media.ts                            (comentarios limpios)
+   src/pages/Tienda.tsx                    (menú, búsqueda, footer)
+   src/pages/Estudio.tsx                   (menú, secciones, footer)
+   src/components/Carousel.tsx             (nuevo)
+   src/components/SiteFooter.tsx           (nuevo)
+   src/components/Hero.tsx                 (modificado)
+   src/components/Icons.tsx                (limpio)
+   src/components/Logo.tsx                 (logo oficial)
+   src/components/PageChrome.tsx           (limpio)
+
+* El archivo src/components/CardPress.tsx NO va en el paquete
+  porque se elimina del repo (paso 4).
+
+¿Por qué dist/index.html va incluido?
+Es el sitio ya compilado. Si Vercel corre el build, lo regenera igual;
+si no, sirve esta versión exacta. Cualquier escenario funciona.

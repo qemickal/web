@@ -1,5 +1,5 @@
 /* ============================================================
-   MEDIA — Imágenes del hero y de las tarjetas CardPress
+   MEDIA — Fondos del hero (tienda y estudio)
    ------------------------------------------------------------
    PARA ACTUALIZAR LAS IMÁGENES tienes dos opciones:
 
@@ -38,12 +38,10 @@ export const MEDIA = {
     /* Fondo a sangre completa del panel TIENDA */
     heroBg: img("tienda.jpg"),
     heroAlt: "", /* decorativa: el panel ya tiene aria-label descriptivo */
-    /* Estampa impresa dentro de la tarjeta CardPress */
-    stamp: img("tienda.jpg"),
   },
   estudio: {
+    /* Fondo a sangre completa del panel ESTUDIO */
     heroBg: img("estudio.jpg"),
     heroAlt: "",
-    stamp: img("estudio.jpg"),
   },
 } as const;

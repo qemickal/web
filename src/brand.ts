@@ -3,12 +3,13 @@
 export type PageId = "hero" | "tienda" | "estudio";
 
 export const C = {
-  paper: "#F4F6F8",
-  sky: "#9BC1E2",
-  mint: "#7FC5C1",
-  axis: "#0A50B1",
-  navy: "#003366",
-  night: "#0A1A2F",
+  /* Paleta oficial — Manual de marca Mono Cromat & Co., ed. 01 */
+  paper: "#FAF7F4", /* Blanco papel — reserva de papel, fondos claros */
+  sky: "#57C1E8", /* Sky Blue — tintas planas de apoyo */
+  mint: "#4CD8C0", /* Mint Teal — acento y contraste cálido */
+  bright: "#1A86D0", /* Bright Blue — énfasis y datos numéricos */
+  royal: "#2E48A1", /* Royal Blue — color institucional, la voz del estudio */
+  oxford: "#081C30", /* Oxford Dark — texto y fondos de alto contraste */
 } as const;
 
 export const SLOGAN = "Lift your vision";
@@ -16,7 +17,6 @@ export const SLOGAN = "Lift your vision";
 /* Motion (las transiciones del DOM viven en CSS con la misma curva) */
 export const EASE = "power3.inOut";
 export const WIPE_DUR = 0.52;
-export const FLOAT_DUR = 3.4;
 
 /* Labels de la cortina de transición */
 export const WIPE_LABEL: Record<PageId, string> = {

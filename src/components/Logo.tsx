@@ -1,51 +1,57 @@
 /* ============================================================
    LOGO — Mono Cromat & Co.
    ------------------------------------------------------------
-   PUNTO DE REEMPLAZO ÚNICO.
-   Cuando tengas tu logotipo definitivo, borra el bloque
-   "wordmark provisional" de abajo y descomenta la opción A o B.
-   No necesitas tocar App.tsx ni el CSS del hero.
+   Logotipo definitivo: script monolinea dibujado a mano
+   (Manual de marca, ed. 01 · p. 06).
 
-   A) SVG inline  → mejor opción: escala perfecto y hereda el
-      color actual con fill="currentColor" (funciona con el
-      mix-blend-difference del header sobre ambos universos).
+   Archivos en /public/images/:
+     · logo-oxford.png  → Oxford Dark, sobre fondos claros
+     · logo-paper.png   → Blanco papel, versión negativa
+     · logo-royal.png   → Royal Blue, color base del trazo
 
-   B) Archivo de imagen → coloca el archivo en
-      public/images/logo.svg y usa la etiqueta <img>.
+   Reglas del manual: se usa completo, sin rotar ni estirar,
+   con aire alrededor. Mínimo digital: 96 px de ancho
+   (en móvil se tolera 80 px por ergonomía).
    ============================================================ */
 
-export default function Logo({ className = "" }: { className?: string }) {
-  /* ---------- A) SVG INLINE (recomendado) ----------
-  return (
-    <svg
-      viewBox="0 0 240 40"
-      role="img"
-      aria-label="Mono Cromat & Co."
-      className={`h-5 w-auto md:h-6 ${className}`}
-      fill="currentColor"
-    >
-      <path d="..." />
-    </svg>
-  );
-  */
+const LOGO_INK = "images/logo-oxford.png";
+const LOGO_NEG = "images/logo-paper.png";
 
-  /* ---------- B) ARCHIVO DE IMAGEN ----------
-  return (
-    <img
-      src="/images/logo.svg"
-      alt="Mono Cromat & Co."
-      className={`h-5 w-auto md:h-6 ${className}`}
-    />
-  );
-  */
+export default function Logo({
+  variant = "auto",
+  className = "",
+}: {
+  variant?: "auto" | "negative";
+  className?: string;
+}) {
+  /* Variante fija (p. ej. bajo mix-blend-difference en el hero) */
+  if (variant === "negative") {
+    return (
+      <img
+        src={LOGO_NEG}
+        alt="Mono Cromat & Co."
+        className={`logo-img ${className}`}
+        draggable={false}
+      />
+    );
+  }
 
-  /* ---------- Wordmark provisional (borrar al tener el logo) ---------- */
+  /* Automática: Oxford en páginas claras, papel en oscuras */
   return (
-    <div className={`flex items-baseline gap-2 ${className}`}>
-      <span className="font-display text-base leading-none font-bold tracking-[-0.02em] uppercase md:text-lg">
-        Mono Cromat
-      </span>
-      <span className="font-serif-i text-lg leading-none md:text-xl">&amp; Co.</span>
-    </div>
+    <span className={`logo-swap ${className}`}>
+      <img
+        src={LOGO_INK}
+        alt="Mono Cromat & Co."
+        className="logo-img logo-ink"
+        draggable={false}
+      />
+      <img
+        src={LOGO_NEG}
+        alt=""
+        aria-hidden="true"
+        className="logo-img logo-neg"
+        draggable={false}
+      />
+    </span>
   );
 }

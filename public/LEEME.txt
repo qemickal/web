@@ -28,7 +28,7 @@ PARA WORDPRESS:
 
 --------------------------------------------------------
 Notas:
-  · Las tipografías (Archivo, Plex Mono, Instrument Serif)
+  · Las tipografías (Space Grotesk, Fira Mono, Inter e Instrument Serif)
     cargan de Google Fonts: necesitas internet la primera
     vez. Conexión lenta = un parpadeo de fuente, nada más.
   · Imágenes de los paneles: se reemplazan en /images o
